@@ -48,7 +48,7 @@ class App extends Component {
     render() {
         return (
             <div className="layout">
-                <h1 className="story">{data[this.state.counter].historia}</h1>
+                <h1 className="historia">{data[this.state.counter].historia}</h1>
                 <Options
                     handleClick={this.handleClick}
                     optionA={data[this.state.counter].opciones.a}
@@ -57,11 +57,11 @@ class App extends Component {
                 <LogHistory
                     previousSelection={this.state.previousSelection}
                     LogStory={this.state.LogStory.map(
-                        (e, index) => (
-                            <li key={index}>{e}</li>
-                        ),
-                        data[this.state.counter].id
-                    )}
+                        (e, index) => {
+                            return <li key={index}>{e}</li>
+                        })
+                        
+                    }
                 />
             </div>
         );
